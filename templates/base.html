@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-right">
+            {% if user.is_authenticated %}
+                <span class="navbar-text">You are logged as {{ user.username }}</span>
+                <span style="color: #bdbdbd; scale: 1 2 1; margin-top: 8px;float: left">|</span>
+                <a class="navbar-a navbar-logout" href="/logout">Logout</a>
+            {% else %}
+                <a class="navbar-a navbar-login" style="margin-right: 20px" href="/login">Login</a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* CSS COLORS */
+:root {
+	--jet: #363636ff;
+	--indian-red: #db5461ff;
+	--floral-white: #fff8f0ff;
+	--floral-white-hover: #e5dfd8;
+	--celestial-blue: #1b98e0ff;
+	--mint: #3ab795ff;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+body {
+	font-family: 'Roboto', sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+a{
+	text-decoration: none;
+}
+
+
+.navbar {
+	background-color: var(--jet);
+	width: 100%;
+	padding: 16px 0px 16px 0px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.navbar a{
+	padding: 8px;
+	color: var(--floral-white);
+	font-size: 20px;
+	float: left;
+}
+
+.navbar a:hover{
+	color: var(--floral-white-hover);
+}
+
+.navbar-right{
+	float: right;
+}
+
+.navbar-logout{
+	margin-right: 20px;
+}
+
+.navbar-text{
+	padding: 8px;
+	color: var(--floral-white);
+	font-size: 20px;
+	float: left;
+}
