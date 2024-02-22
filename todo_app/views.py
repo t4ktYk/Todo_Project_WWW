@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import RegisterForm
 
-
+#test2
 def index(request):
     return render(request, 'index.html')
 
