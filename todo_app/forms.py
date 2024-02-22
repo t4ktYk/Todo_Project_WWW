@@ -12,11 +12,15 @@ class UserLoginForm(AuthenticationForm):
 
         username = UsernameField(widget=forms.TextInput(
             attrs={
-                'class': 'form-login-username', 'id': 'name'}))
+                'class': 'form-login-username', 'id': 'name',
+            }))
         password = forms.CharField(widget=forms.PasswordInput(
             attrs={
                 'class': 'form-login-password', 'id': 'pass'}
         ))
+
+
+
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)

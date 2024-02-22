@@ -5,7 +5,10 @@
 {% block content %}
     <form method="post" action="">
         {% csrf_token %}
-        {{ form }}
+        {{ form.username }}
+        {{ form.email }}
+        {{ form.password1 }}
+        {{ form.password2 }}
         <input type="submit" value="Submit" />
     </form>
 

@@ -5,6 +5,7 @@
 	--floral-white: #fff8f0ff;
 	--floral-white-hover: #e5dfd8;
 	--celestial-blue: #1b98e0ff;
+	--celestial-blue-hover: #48acff;
 	--mint: #3ab795ff;
 }
 
@@ -56,4 +57,34 @@ a{
 	color: var(--floral-white);
 	font-size: 20px;
 	float: left;
+}
+
+/*Login css*/
+
+.form-login-username{
+
+}
+
+.form-login-password{
+
+}
+
+.form-login-btn{
+	background-color: var(--celestial-blue);
+	border: none;
+	color: var(--floral-white);
+	padding: 10px 32px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 10px;
+}
+
+.form-login-btn:hover{
+	background-color: var(--celestial-blue-hover);
+}
+
+.login-box{
+	text-align: center;
+	color: var(--jet);
 }

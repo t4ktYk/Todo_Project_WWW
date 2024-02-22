@@ -3,22 +3,24 @@
 {% block title %}Login{% endblock %}
 
 
+
 {% block content %}
     <form method="post">
     {% csrf_token %}
             <div class="login-box">
-                <label for="{{ form.username.name }}">Username*</label>
+                <label class="form-login-username" for="{{ form.username.name }}">Username</label>
                 <br>
                 {{ form.username }}
                 {{ form.username.errors }}
                 <br><br>
-                <label for="{{ form.password.pass }}">Password*</label>
+                <label class="form-login-password" for="{{ form.password.pass }}">Password</label>
                 <br>
                 {{ form.password }}
                 {{ form.password.errors }}
                 <br><br>
+                <button class="form-login-btn" type="submit">Login</button>
+                <br><br>
                 <span>Don't have a account sing up <a href="/register/">here</a>.</span>
-                <button type="submit">Login</button>
             </div>
     </form>
 {% endblock %}

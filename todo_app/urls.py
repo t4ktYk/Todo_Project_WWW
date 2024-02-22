@@ -5,7 +5,7 @@ from . import views, forms
 
 
 urlpatterns = [
-    path('', views.index, name='main'),
+    path('', views.index, name='index'),
 
 
     path('login/', views_auth.LoginView.as_view(
