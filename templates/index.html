@@ -4,11 +4,32 @@
 
 
 {% block content %}
+    <div class="todo-box">
+        <h1>Todo List</h1>
+        {% for task in tasks %}
+            <span>{{ task }}</span>
+            <br>
+        {% endfor %}
+    </div>
 
-    {% for task in tasks %}
-        {{ task }}
-        <br>
-    {% endfor %}
+
+
+
+{#    <div class="todo-box">#}
+{#        <h1>Todo List</h1>#}
+{#        <div class="tasks-box">#}
+{##}
+{#            {% for task in tasks %}#}
+{#                <div class="task">#}
+{#                    <span>{{ task }}</span>#}
+{#                    <br>#}
+{#                </div>#}
+{##}
+{#            {% endfor %}#}
+{#        </div>#}
+
+
+
 
 
 {% endblock %}

@@ -95,3 +95,33 @@ a{
 	text-align: center;
 	color: var(--jet);
 }
+
+
+/*Index page css*/
+
+
+.todo-box{
+	color: var(--jet);
+}
+
+.tasks-box{
+	width: 300px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.task{
+	color: var(--floral-white);
+	float: left;
+	font-size: 18px;
+}
+
+.task span{
+	background-color: var(--jet);
+	padding-left: 80px;
+	padding-right: 80px;
+}
