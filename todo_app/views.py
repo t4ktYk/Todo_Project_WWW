@@ -1,12 +1,23 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
+
 from django.contrib.auth.decorators import login_required
 
 from .forms import RegisterForm
+from .models import TaskList, Task
 
 #test2
+
 def index(request):
-    return render(request, 'index.html')
+
+    tasks = Task.objects.filter(task_list=request.user.id).all()
+
+    content = {'tasks': tasks}
+
+    return render(request, 'index.html', content)
+
+
+
 
 def cs_logout(request):
     logout(request)

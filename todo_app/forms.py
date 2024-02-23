@@ -23,7 +23,33 @@ class UserLoginForm(AuthenticationForm):
 
 
 class RegisterForm(UserCreationForm):
-    email = forms.EmailField(required=True)
+
+    def __init__(self, *args, **kwargs):
+        super(RegisterForm, self).__init__(*args, **kwargs)
+
+        username = UsernameField(widget=forms.TextInput(
+            attrs={
+                'class': 'form-login-username', 'id': 'name',
+            }))
+
+        email = forms.EmailField(widget=forms.EmailInput(
+            attrs={
+                'class': 'form-login-email', 'id': 'email'
+            }
+        ))
+
+        password = forms.CharField(widget=forms.PasswordInput(
+            attrs={
+                'class': 'form-login-password', 'id': 'pass1'
+            }
+        ))
+
+        password = forms.CharField(widget=forms.PasswordInput(
+            attrs={
+                'class': 'form-login-password', 'id': 'pass2'
+            }
+        ))
+
 
     class Meta:
         model = User

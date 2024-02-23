@@ -88,3 +88,10 @@ a{
 	text-align: center;
 	color: var(--jet);
 }
+
+/*Register css*/
+
+.register-box{
+	text-align: center;
+	color: var(--jet);
+}
