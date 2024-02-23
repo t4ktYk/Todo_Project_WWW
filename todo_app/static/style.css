@@ -101,6 +101,7 @@ a{
 
 
 .todo-box{
+	text-align: center;
 	color: var(--jet);
 }
 
@@ -115,13 +116,8 @@ a{
 }
 
 .task{
-	color: var(--floral-white);
-	float: left;
-	font-size: 18px;
+	margin-left: -100px;
+	display: inline-block;
+	text-align: left;
 }
 
-.task span{
-	background-color: var(--jet);
-	padding-left: 80px;
-	padding-right: 80px;
-}
