@@ -2,7 +2,16 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UsernameField, UserCreationForm
 from django.contrib.auth.models import User
 
+from .models import Task
+
 import datetime
+
+
+
+class TaskCreationForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ["description", ]
 
 
 
@@ -13,6 +22,7 @@ class UserLoginForm(AuthenticationForm):
         username = UsernameField(widget=forms.TextInput(
             attrs={
                 'class': 'form-login-username', 'id': 'name',
+                'placeholder': 'Username',
             }))
         password = forms.CharField(widget=forms.PasswordInput(
             attrs={

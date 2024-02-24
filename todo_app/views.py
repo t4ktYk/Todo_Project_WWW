@@ -3,8 +3,8 @@ from django.contrib.auth import login, logout, authenticate
 
 from django.contrib.auth.decorators import login_required
 
-from .forms import RegisterForm
-from .models import TaskList, Task
+from .forms import RegisterForm, TaskCreationForm
+from .models import TaskList, Task, TaskList
 
 #test2
 
@@ -12,9 +12,25 @@ def index(request):
 
     tasks = Task.objects.filter(task_list=request.user.id).all()
 
-    content = {'tasks': tasks}
+    context={}
+    context['tasks'] = tasks
 
-    return render(request, 'index.html', content)
+    form = TaskCreationForm()
+
+    if request.method == 'POST':
+        form = TaskCreationForm(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task_list_instance = TaskList.objects.get(pk=request.user.id)
+            task.task_list = task_list_instance
+            task.save()
+            return redirect('/')
+        else:
+            form = TaskCreationForm()
+
+    context['form'] = form
+
+    return render(request, 'index.html', context)
 
 
 

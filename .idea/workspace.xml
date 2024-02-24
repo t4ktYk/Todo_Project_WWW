@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f6d47a8-9f4f-4ab2-b719-0662d5874ba2" name="Changes" comment="9">
+    <list default="true" id="3f6d47a8-9f4f-4ab2-b719-0662d5874ba2" name="Changes" comment="login page css">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_app/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/todo_app/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_app/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,20 +33,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;t4ktYk&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="ee294283-ba6f-4e4e-b978-5f0a53d40f7e" />
-        <option name="url" value="https://github.com/t4ktYk/Todo_Project_WWW.git" />
-      </UrlAndAccount>
-    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -127,9 +117,9 @@
       <workItem from="1708590672864" duration="757000" />
       <workItem from="1708593546959" duration="1712000" />
       <workItem from="1708597185328" duration="1685000" />
-      <workItem from="1708621826000" duration="3462000" />
-      <workItem from="1708688340502" duration="2560000" />
-      <workItem from="1708694969077" duration="980000" />
+      <workItem from="1708621826000" duration="3536000" />
+      <workItem from="1708642080157" duration="2229000" />
+      <workItem from="1708785851285" duration="2442000" />
     </task>
     <task id="LOCAL-00001" summary="db">
       <option name="closed" value="true" />
@@ -139,32 +129,34 @@
       <option name="project" value="LOCAL" />
       <updated>1708597496056</updated>
     </task>
-    <task id="LOCAL-00002" summary="working showing user tasks">
+    <task id="LOCAL-00002" summary="register-login | system&#10;navbar">
       <option name="closed" value="true" />
-      <created>1708679774725</created>
+      <created>1708625354002</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1708679774726</updated>
+      <updated>1708625354002</updated>
     </task>
-    <task id="LOCAL-00003" summary="9">
-      <option name="closed" value="true" />
-      <created>1708690766771</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1708690766771</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="db" />
-    <MESSAGE value="working showing user tasks" />
-    <MESSAGE value="9" />
-    <option name="LAST_COMMIT_MESSAGE" value="9" />
+    <MESSAGE value="register-login | system&#10;navbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="register-login | system&#10;navbar" />
   </component>
 </project>

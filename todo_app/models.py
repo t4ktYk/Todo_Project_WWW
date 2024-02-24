@@ -10,7 +10,6 @@ class TaskList(models.Model):
 
 class Task(models.Model):
     description = models.TextField()
-    due_date = models.DateField()
     completed = models.BooleanField(default=False)
     task_list = models.ForeignKey(TaskList, on_delete=models.CASCADE)
 

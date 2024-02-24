@@ -105,9 +105,13 @@ a{
 	color: var(--jet);
 }
 
+.input-task{
+
+}
+
 .tasks-box{
-	width: 300px; /* Adjust width as needed */
-    height: 200px; /* Adjust height as needed */
+	width: 300px;
+    height: 200px;
     background-color: #f0f0f0;
     display: flex;
     align-items: center;
@@ -116,8 +120,8 @@ a{
 }
 
 .task{
-	margin-left: -100px;
-	display: inline-block;
-	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 

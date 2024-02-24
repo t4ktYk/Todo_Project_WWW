@@ -5,16 +5,26 @@
 
 {% block content %}
     <div class="todo-box">
+        <h1>Todo List</h1>
         {% if user.is_authenticated %}
-            <h1>Todo List</h1>
-            <div class="task">
-                {% for task in tasks %}
-                    <span>{{ task.description }}</span>
-                    <br>
-                {% endfor %}
-            </div>
+            {% if not tasks %}
+                <span style="margin-left: auto; margin-right: -10px; display: block">You don't have any tasks.</span>
+            {% else %}
+                <div class="task">
+                    {% for task in tasks %}
+                        <span>{{ task.description }}</span>
+                        <br>
+                    {% endfor %}
+                 </div>
+            {% endif %}
+            <br><br><br>
+            <form method="post" class="todo-post-form">
+                {% csrf_token %}
+                {{ form.description }}
+                <button class="form-login-btn" type="submit">Add task</button>
+            </form>
         {% else %}
-            <h1>Not logged in.</h1>
+            <span>Not logged in.</span>
         {% endif %}
     </div>
 
