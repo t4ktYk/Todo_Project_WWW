@@ -1,7 +1,8 @@
 /* CSS COLORS */
 :root {
 	--jet: #363636ff;
-	--indian-red: #db5461ff;
+	--indian-red: #d02c3c;
+	--indian-red-hover: #db5461ff;
 	--floral-white: #fff8f0ff;
 	--floral-white-hover: #e5dfd8;
 	--celestial-blue: #1b98e0ff;
@@ -77,7 +78,7 @@ a{
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
 .form-login-btn:hover{
@@ -98,6 +99,27 @@ a{
 
 
 /*Index page css*/
+
+.todo-post-form{
+	text-align: center;
+}
+
+.add-task-btn{
+	background-color: var(--celestial-blue);
+	border: none;
+	color: var(--floral-white);
+	padding: 6px 16px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 5px;
+}
+
+.add-task-btn:hover{
+	background-color: var(--celestial-blue-hover);
+}
+
+
 
 .tasks-box{
 	display: flex;
@@ -120,6 +142,23 @@ a{
 	margin-right: 10px
 }
 
+.task-delete-btn{
+	background-color: var(--indian-red);
+	color: var(--floral-white);
+	border: none;
+	border-radius: 5px;
+	padding: 6px;
+	text-decoration: none;
+	float: right;
+	margin-left: 10px;
+	margin-top: -5px;
+}
+
+.task-delete-btn:hover{
+	background-color: var(--indian-red-hover);
+}
+
+
 .task-separator-top{
 	margin-left: auto;
 	margin-right: auto;
@@ -134,7 +173,7 @@ a{
   	height: 2px;
   	background-color: var(--jet);
 	opacity: 0.3;
-  	margin-top: 10px;
+  	margin-top: 14px;
 	margin-bottom: 5px;
   	width: 300px;
 }

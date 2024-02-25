@@ -32,7 +32,10 @@ def index(request):
 
     return render(request, 'index.html', context)
 
-
+def delete(request, id):
+    task_list_instance = TaskList.objects.get(pk=request.user.id)
+    Task.objects.filter(id=id, task_list=task_list_instance).delete()
+    return redirect('/')
 
 
 def cs_logout(request):

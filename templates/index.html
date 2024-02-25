@@ -5,6 +5,11 @@
 
 {% block content %}
     <h1 style="font-size: 40px; font-weight: bold; text-align: center">Todo App</h1>
+    <form method="post" class="todo-post-form">
+        {% csrf_token %}
+        {{ form.description }}
+        <button class="add-task-btn" type="submit">Save</button>
+    </form>
     <div class="task-separator-top"></div>
     {% if user.is_authenticated %}
         <div class="tasks-box">
@@ -12,6 +17,7 @@
                 <div class="task">
                     <input type="checkbox" {% if task.completed %}checked{% endif %}>
                     <label for="checkbox_{{ task.id }}">{{ task.description }}</label>
+                    <a href="{% url 'delete' id=task.id %}" style="float: right; margin-right: 10px" class="task-delete-btn">Delete</a>
                     <div class="task-separator"></div>
                 </div>
             {% endfor %}
