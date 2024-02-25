@@ -1,51 +1,24 @@
-{% extends "base.html" %}
+{% extends "base.html"%}
 
 {% block title %}TODO{% endblock %}
 
 
 {% block content %}
-    <div class="todo-box">
-        <h1>Todo List</h1>
-        {% if user.is_authenticated %}
-            {% if not tasks %}
-                <span style="margin-left: auto; margin-right: -10px; display: block">You don't have any tasks.</span>
-            {% else %}
+    <h1 style="font-size: 40px; font-weight: bold; text-align: center">Todo App</h1>
+    <div class="task-separator-top"></div>
+    {% if user.is_authenticated %}
+        <div class="tasks-box">
+            {% for task in tasks %}
                 <div class="task">
-                    {% for task in tasks %}
-                        <span>{{ task.description }}</span>
-                        <br>
-                    {% endfor %}
-                 </div>
-            {% endif %}
-            <br><br><br>
-            <form method="post" class="todo-post-form">
-                {% csrf_token %}
-                {{ form.description }}
-                <button class="form-login-btn" type="submit">Add task</button>
-            </form>
-        {% else %}
-            <span>Not logged in.</span>
-        {% endif %}
-    </div>
+                    <input type="checkbox" {% if task.completed %}checked{% endif %}>
+                    <label for="checkbox_{{ task.id }}">{{ task.description }}</label>
+                    <div class="task-separator"></div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p style="text-align: center">Not logged in.</p>
+    {% endif %}
 
 
 {% endblock %}
-
-
-{#    <div class="todo-box">#}
-{#        <h1>Todo List</h1>#}
-{#        <div class="tasks-box">#}
-{##}
-{#            {% for task in tasks %}#}
-{#                <div class="task">#}
-{#                    <span>{{ task }}</span>#}
-{#                    <br>#}
-{#                </div>#}
-{##}
-{#            {% endfor %}#}
-{#        </div>#}
-
-
-
-
-

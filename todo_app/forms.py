@@ -9,9 +9,15 @@ import datetime
 
 
 class TaskCreationForm(forms.ModelForm):
+
+
+    description = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Add task', 'style': 'width: 300px; font-size: 14px; padding: 5px'}))
+
     class Meta:
         model = Task
         fields = ["description", ]
+
+
 
 
 
