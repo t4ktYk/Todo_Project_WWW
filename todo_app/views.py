@@ -43,20 +43,15 @@ def update_task(request):
     if request.method == 'POST':
         task_id = request.POST.get('task_id')
         is_completed = request.POST.get('is_completed')
-
         try:
             task = Task.objects.get(id=task_id)
         except Task.DoesNotExist:
             return JsonResponse({'status': 'error', 'message': 'Task not found', 'temp': task_id})
 
-
-
-        if is_completed:
-            task.completed = False
-        else:
-            task.completed = True
+        task.completed = not task.completed
         task.save()
-        return JsonResponse({'status': 'success'})
+
+        return JsonResponse({'status': 'success true', 'id': task.id, 'completed': task.completed})
     else:
         return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
 
