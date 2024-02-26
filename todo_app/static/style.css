@@ -148,7 +148,6 @@ input:checked+label{
 }
 
 
-
 .task-delete-btn{
 	background-color: var(--indian-red);
 	color: var(--floral-white);
