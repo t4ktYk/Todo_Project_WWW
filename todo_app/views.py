@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.contrib.auth import login, logout, authenticate
 
 from django.contrib.auth.decorators import login_required
@@ -37,6 +38,27 @@ def delete(request, id):
     Task.objects.filter(id=id, task_list=task_list_instance).delete()
     return redirect('/')
 
+
+def update_task(request):
+    if request.method == 'POST':
+        task_id = request.POST.get('task_id')
+        is_completed = request.POST.get('is_completed')
+
+        try:
+            task = Task.objects.get(id=task_id)
+        except Task.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'Task not found', 'temp': task_id})
+
+
+
+        if is_completed:
+            task.completed = False
+        else:
+            task.completed = True
+        task.save()
+        return JsonResponse({'status': 'success'})
+    else:
+        return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
 
 def cs_logout(request):
     logout(request)

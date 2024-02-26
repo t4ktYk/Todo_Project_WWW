@@ -142,6 +142,13 @@ a{
 	margin-right: 10px
 }
 
+input:checked+label{
+	text-decoration: line-through;
+	opacity: 0.5;
+}
+
+
+
 .task-delete-btn{
 	background-color: var(--indian-red);
 	color: var(--floral-white);

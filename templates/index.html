@@ -4,6 +4,41 @@
 
 
 {% block content %}
+
+    <script>
+    $(document).ready(function() {
+    $(".tasks-box input[type='checkbox']").change(function() {
+        var isChecked = $(this).is(":checked");
+        var taskId = $(this).data("task-id");
+
+        // Send AJAX request to update the task
+        updateTask(isChecked, taskId);
+    });
+});
+
+function updateTask(isChecked, taskId) {
+    $.ajax({
+        url: "{% url 'update_task' %}", // Replace with your actual URL
+        type: "POST",
+        data: {
+            "is_completed": isChecked,
+            "task_id": taskId,
+            "csrfmiddlewaretoken": $('input[name="csrfmiddlewaretoken"]').val(),
+        },
+        success: function(response) {
+            // Handle successful update (optional)
+            console.log("Task updated successfully:", response);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error("Error updating task:", textStatus, errorThrown);
+        }
+    });
+}
+
+    </script>
+
+
+
     <h1 style="font-size: 40px; font-weight: bold; text-align: center">Todo App</h1>
     <form method="post" class="todo-post-form">
         {% csrf_token %}
@@ -13,15 +48,16 @@
     <div class="task-separator-top"></div>
     {% if user.is_authenticated %}
         <div class="tasks-box">
-            {% for task in tasks %}
-                <div class="task">
-                    <input type="checkbox" {% if task.completed %}checked{% endif %}>
-                    <label for="checkbox_{{ task.id }}">{{ task.description }}</label>
-                    <a href="{% url 'delete' id=task.id %}" style="float: right; margin-right: 10px" class="task-delete-btn">Delete</a>
-                    <div class="task-separator"></div>
-                </div>
-            {% endfor %}
-        </div>
+        {% for task in tasks %}
+            <div class="task">
+                <input type="checkbox" id="checkbox_{{ task.id }}" value="{{ task.id }}" data-task-id="{{ task.id }}" {% if task.completed %}checked{% endif %}>
+                <input type="hidden" id="{{ task.id }}" value="{{ task.id }}">
+                <label class="task-label" for="checkbox_{{ task.id }}">{{ task.description }}</label>
+                <a href="{% url 'delete' id=task.id %}" style="float: right; margin-right: 10px" class="task-delete-btn">Delete</a>
+                <div class="task-separator"></div>
+            </div>
+        {% endfor %}
+    </div>
     {% else %}
         <p style="text-align: center">Not logged in.</p>
     {% endif %}
