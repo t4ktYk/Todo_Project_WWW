@@ -184,3 +184,27 @@ input:checked+label{
   	width: 300px;
 }
 
+.edit-task-btn{
+	background-color: var(--celestial-blue);
+	border: none;
+	color: var(--floral-white);
+	padding: 6px 8px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 5px;
+	margin-top: -5px;
+}
+
+.edit-task-btn:hover{
+	background-color: var(--celestial-blue-hover);
+}
+
+
+.edit-task-btn:after{
+	position: relative;
+	margin-left: 3px;
+	content: '\2807';
+	font-size: 15px;
+}
+

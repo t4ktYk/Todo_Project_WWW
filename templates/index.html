@@ -52,6 +52,7 @@
                 <input type="checkbox" id="checkbox_{{ task.id }}" value="{{ task.id }}" data-task-id="{{ task.id }}" {% if task.completed %}checked {% endif %}>
                 <label class="task-label" for="checkbox_{{ task.id }}">{{ task.description }}</label>
                 <input type="hidden" id="{{ task.id }}" value="{{ task.id }}">
+                <button style="float: right;" class="edit-task-btn"></button>
                 <a href="{% url 'delete' id=task.id %}" style="float: right; margin-right: 10px" class="task-delete-btn">Delete</a>
                 <div class="task-separator"></div>
             </div>

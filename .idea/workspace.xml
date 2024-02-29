@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f6d47a8-9f4f-4ab2-b719-0662d5874ba2" name="Changes" comment="new css">
-      <change afterPath="$PROJECT_DIR$/todo_app/static/images/dots.png" afterDir="false" />
+    <list default="true" id="3f6d47a8-9f4f-4ab2-b719-0662d5874ba2" name="Changes" comment="checkbox changes $completed value">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_app/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/todo_app/static/style.css" afterDir="false" />
     </list>
@@ -23,13 +23,28 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;t4ktYk&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="ee294283-ba6f-4e4e-b978-5f0a53d40f7e" />
+        <option name="url" value="https://github.com/t4ktYk/Todo_Project_WWW.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -62,11 +77,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\python2024\django\Todo_Project_WWW\todo_app\static\images" />
       <recent name="E:\python2024\django\Todo_Project_WWW\templates\registration" />
       <recent name="E:\python2024\django\Todo_Project_WWW\todo_app" />
       <recent name="E:\python2024\django\Todo_Project_WWW" />
       <recent name="E:\python2024\django\Todo_Project_WWW\Todo_Project" />
+      <recent name="E:\python2024\django\Todo_Project_WWW\static" />
     </key>
   </component>
   <component name="RunManager">
@@ -114,12 +129,11 @@
       <workItem from="1708590672864" duration="757000" />
       <workItem from="1708593546959" duration="1712000" />
       <workItem from="1708597185328" duration="1685000" />
-      <workItem from="1708621826000" duration="3536000" />
-      <workItem from="1708642080157" duration="2229000" />
-      <workItem from="1708785851285" duration="3067000" />
-      <workItem from="1708859143846" duration="1417000" />
-      <workItem from="1708870269002" duration="3404000" />
-      <workItem from="1708879973443" duration="1870000" />
+      <workItem from="1708621826000" duration="3462000" />
+      <workItem from="1708688340502" duration="2560000" />
+      <workItem from="1708694969077" duration="980000" />
+      <workItem from="1708935643668" duration="1894000" />
+      <workItem from="1708943895907" duration="5935000" />
     </task>
     <task id="LOCAL-00001" summary="db">
       <option name="closed" value="true" />
@@ -129,29 +143,29 @@
       <option name="project" value="LOCAL" />
       <updated>1708597496056</updated>
     </task>
-    <task id="LOCAL-00002" summary="register-login | system&#10;navbar">
+    <task id="LOCAL-00002" summary="working showing user tasks">
       <option name="closed" value="true" />
-      <created>1708625354002</created>
+      <created>1708679774725</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1708625354002</updated>
+      <updated>1708679774726</updated>
     </task>
-    <task id="LOCAL-00003" summary="can add tasks">
+    <task id="LOCAL-00003" summary="9">
       <option name="closed" value="true" />
-      <created>1708788317108</created>
+      <created>1708690766771</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1708788317108</updated>
+      <updated>1708690766771</updated>
     </task>
-    <task id="LOCAL-00004" summary="new css">
+    <task id="LOCAL-00004" summary="checkbox changes $completed value">
       <option name="closed" value="true" />
-      <created>1708873586244</created>
+      <created>1708949148336</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1708873586244</updated>
+      <updated>1708949148337</updated>
     </task>
     <option name="localTasksCounter" value="5" />
     <servers />
@@ -172,9 +186,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="db" />
-    <MESSAGE value="register-login | system&#10;navbar" />
-    <MESSAGE value="can add tasks" />
-    <MESSAGE value="new css" />
-    <option name="LAST_COMMIT_MESSAGE" value="new css" />
+    <MESSAGE value="working showing user tasks" />
+    <MESSAGE value="9" />
+    <MESSAGE value="checkbox changes $completed value" />
+    <option name="LAST_COMMIT_MESSAGE" value="checkbox changes $completed value" />
   </component>
 </project>
