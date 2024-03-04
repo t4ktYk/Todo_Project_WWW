@@ -6,6 +6,47 @@
 {% block content %}
     {% load static %}
     <script>
+
+        function changeColor(){
+            var element = event.target.style.backgroundColor;
+
+            console.log(element)
+
+            {#switch (event.target.style.backgroundColor){#}
+            {#    case "color-filter-red":#}
+            {#        event.target.style.backgroundColor = "color-filter-orange"#}
+            {#    case "color-filter-orange":#}
+            {#        event.target.style.backgroundColor = "color-filter-green"#}
+            {#    case "color-filter-green":#}
+            {#        event.target.style.backgroundColor = "color-filter-cyan"#}
+            {#    case "color-filter-cyan":#}
+            {#        event.target.style.backgroundColor = "color-filter-blue"#}
+            {#    case "color-filter-blue":#}
+            {#        event.target.style.backgroundColor = "color-filter-purple"#}
+            {#    case "color-filter-purple":#}
+            {#        event.target.style.backgroundColor = "color-filter-red"#}
+
+            if (event.target.style.backgroundColor = "color-filter-red") {
+                event.target.style.backgroundColor = "color-filter-orange"
+            }
+            else if(event.target.style.backgroundColor = "color-filter-orange"){
+                event.target.style.backgroundColor = "color-filter-green"
+            }
+            else if(event.target.style.backgroundColor = "color-filter-green"){
+                event.target.style.backgroundColor = "color-filter-cyan"
+            }
+            else if(event.target.style.backgroundColor = "color-filter-cyan"){
+                event.target.style.backgroundColor = "color-filter-blue"
+            }
+            else if(event.target.id = "color-filter-blue"){
+                event.target.id = "color-filter-purple"
+            }
+            else if(event.target.id = "color-filter-purple"){
+                event.target.id = "color-filter-red"
+            }
+
+        }
+
         $(document).ready(function() {
         $(".tasks-box input[type='checkbox']").change(function() {
             var isChecked = $(this).is(":checked");
@@ -52,7 +93,7 @@
                 <input type="checkbox" id="checkbox_{{ task.id }}" value="{{ task.id }}" data-task-id="{{ task.id }}" {% if task.completed %}checked {% endif %}>
                 <label class="task-label" for="checkbox_{{ task.id }}">{{ task.description }}</label>
                 <input type="hidden" id="{{ task.id }}" value="{{ task.id }}">
-                <button style="float: right;" class="edit-task-btn"></button>
+                <button style="float: right" id="color-filter-red" class="color-filter" onClick="changeColor()"></button>
                 <a href="{% url 'delete' id=task.id %}" style="float: right; margin-right: 10px" class="task-delete-btn">Delete</a>
                 <div class="task-separator"></div>
             </div>
