@@ -9,7 +9,7 @@ class TaskListAdmin(admin.ModelAdmin):
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ['description', 'completed', 'task_list']
+    list_display = ['description', 'completed', 'task_list', 'color_filter']
 
 
 @admin.register(Tag)

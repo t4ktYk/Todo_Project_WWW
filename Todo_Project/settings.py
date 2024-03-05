@@ -67,6 +67,10 @@ TEMPLATES = [
             ],
         },
     },
+    {
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
+        'DIRS': [BASE_DIR / 'todo_app/templatestags']
+    }
 ]
 
 WSGI_APPLICATION = 'Todo_Project.wsgi.application'

@@ -9,9 +9,20 @@ class TaskList(models.Model):
         return self.title
 
 class Task(models.Model):
+    color_choices = (
+        ('default-filter-color', 'default-filter-color'),
+        ('color-filter-red', 'color-filter-red'),
+        ('color-filter-orange', 'color-filter-orange'),
+        ('color-filter-green', 'color-filter-green'),
+        ('color-filter-cyan', 'color-filter-cyan'),
+        ('color-filter-blue', 'color-filter-blue'),
+        ('color-filter-purple', 'color-filter-purple'),
+    )
+
     description = models.TextField()
     completed = models.BooleanField(default=False)
     task_list = models.ForeignKey(TaskList, on_delete=models.CASCADE)
+    color_filter = models.CharField(max_length=20, choices=color_choices, default='default-filter-color')
 
     def __str__(self):
         return self.description

@@ -185,12 +185,7 @@ input:checked+label{
   	width: 300px;
 }
 
-/*red*/
-/*orange*/
-/*yellow*/
-/*green*/
-/*blue*/
-/*violet*/
+
 
 .color-filter{
 	margin-top: 1px;
@@ -205,36 +200,42 @@ input:checked+label{
 }
 
 :root{
+	--default: var(--jet1);
 	--filter-red: #e32636;
 	--filter-orange: #ffa500;
-	--filter-cyan: #33ffff; /* Triadic */
-	--filter-green: #1bff1b; /* Split-Complementary */
-	--filter-blue: #3335ff; /* Analogous & Triadic */
-	--filter-purple: #8A2BE2; /* Split-Complementary */
+	--filter-cyan: #33ffff;
+	--filter-green: #1bff1b;
+	--filter-blue: #3335ff;
+	--filter-purple: #8A2BE2;
+}
+
+
+.default-filter-color{
+	background: var(--default);
 }
 
 /*id 1*/
-#color-filter-red{
+.color-filter-red{
 	background: linear-gradient(to right, var(--filter-red) 0%, var(--filter-red) 50%, var(--jet1) 50%, var(--jet1) 100%);
 }
 /*id 2*/
-#color-filter-orange{
+.color-filter-orange{
 	background: linear-gradient(to right, var(--filter-orange) 0%, var(--filter-orange) 50%, var(--jet1) 50%, var(--jet1) 100%);
 }
 /*id 3*/
-#color-filter-green{
+.color-filter-green{
 	background: linear-gradient(to right, var(--filter-green) 0%, var(--filter-green) 50%, var(--jet1) 50%, var(--jet1) 100%);
 }
 /*id 4*/
-#color-filter-cyan{
+.color-filter-cyan{
 	background: linear-gradient(to right, var(--filter-cyan) 0%, var(--filter-cyan) 50%, var(--jet1) 50%, var(--jet1) 100%);
 }
 /*id 5*/
-#color-filter-blue{
+.color-filter-blue{
 	background: linear-gradient(to right, var(--filter-blue) 0%, var(--filter-blue) 50%, var(--jet1) 50%, var(--jet1) 100%);
 }
 /*id 6*/
-#color-filter-purple{
+.color-filter-purple{
 	background: linear-gradient(to right, var(--filter-purple) 0%, var(--filter-purple) 50%, var(--jet1) 50%, var(--jet1) 100%);
 }
 

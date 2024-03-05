@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.contrib.auth import login, logout, authenticate
 
 from django.contrib.auth.decorators import login_required
@@ -32,6 +32,25 @@ def index(request):
     context['form'] = form
 
     return render(request, 'index.html', context)
+
+def change_color_filter(request, id):
+    color_choices = ('default-filter-color', 'color-filter-red', 'color-filter-orange',
+                     'color-filter-green', 'color-filter-cyan', 'color-filter-blue',
+                     'color-filter-purple'
+                     )
+
+
+    task_list = TaskList.objects.get(pk=request.user.id)
+    task = Task.objects.get(id=id, task_list=task_list)
+
+    index =[i for i,e in enumerate(color_choices) if e == task.color_filter]
+    index = int(index[0])
+    if index == 6:
+        task.color_filter = color_choices[0]
+    else:
+        task.color_filter = color_choices[index+1]
+    task.save()
+    return redirect('/')
 
 def delete(request, id):
     task_list_instance = TaskList.objects.get(pk=request.user.id)
