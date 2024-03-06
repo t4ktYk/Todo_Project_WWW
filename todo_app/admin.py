@@ -9,7 +9,7 @@ class TaskListAdmin(admin.ModelAdmin):
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ['description', 'completed', 'task_list', 'color_filter']
+    list_display = ['description', 'completed', 'task_list', 'color_filter', 'date_added']
 
 @admin.register(SortingType)
 class SortingTypeAdmin(admin.ModelAdmin):

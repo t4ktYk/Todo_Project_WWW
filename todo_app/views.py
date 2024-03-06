@@ -14,6 +14,7 @@ from .models import Task, TaskList, SortingType
 
 
 
+
 @login_required(login_url='login/')
 def index(request):
     context={}
@@ -27,9 +28,16 @@ def index(request):
         sortype.save()
         return redirect('index')
 
-
     task_list_instance = TaskList.objects.get(user=request.user)
-    tasks = Task.objects.filter(task_list=task_list_instance).all()
+    sort_by_instance = SortingType(task_list=task_list_instance)
+
+    if sort_by_instance.sort_by == "by_id":
+        tasks = Task.objects.filter(task_list=task_list_instance).order_by('-id').all()
+    elif sort_by_instance.sort_by == "by_date":
+        tasks = Task.objects.filter(task_list=task_list_instance).order_by('-date_added').all()
+    elif sort_by_instance.sort_by == "by_color":
+        tasks = Task.objects.filter(task_list=task_list_instance).order_by('-color_filter').all()
+
 
     context = {}
     context['tasks'] = tasks
@@ -52,7 +60,7 @@ def index(request):
     return render(request, 'index.html', context)
 
 def change_color_filter(request, id):
-    color_choices = ('default-filter-color', 'color-filter-red', 'color-filter-orange',
+    COLOR_CHOICES = ('default-filter-color', 'color-filter-red', 'color-filter-orange',
                      'color-filter-green', 'color-filter-cyan', 'color-filter-blue',
                      'color-filter-purple'
                      )
@@ -60,14 +68,33 @@ def change_color_filter(request, id):
     task_list = TaskList.objects.get(user=request.user)
     task = Task.objects.get(id=id, task_list=task_list)
 
-    index =[i for i,e in enumerate(color_choices) if e == task.color_filter]
+    index =[i for i,e in enumerate(COLOR_CHOICES) if e == task.color_filter]
     index = int(index[0])
     if index == 6:
-        task.color_filter = color_choices[0]
+        task.color_filter = COLOR_CHOICES[0]
     else:
-        task.color_filter = color_choices[index+1]
+        task.color_filter = COLOR_CHOICES[index+1]
     task.save()
     return redirect('/')
+
+def change_sorting(request):
+    task_list_instance = TaskList.objects.get(user=request.user)
+    sort_by_instance = SortingType.objects.get(task_list=task_list_instance)
+
+    SORT_BY_CHOICES = ('by_id', 'by_date', 'by_color')
+
+    if sort_by_instance.sort_by == SortingType.SORT_BY_CHOICES[0][0]:
+        sort_by_instance.sort_by = SortingType.SORT_BY_CHOICES[1][0]
+        sort_by_instance.save()
+    elif sort_by_instance.sort_by == SortingType.SORT_BY_CHOICES[1][0]:
+        sort_by_instance.sort_by = SortingType.SORT_BY_CHOICES[2][0]
+        sort_by_instance.save()
+    elif sort_by_instance.sort_by == SortingType.SORT_BY_CHOICES[2][0]:
+        sort_by_instance.sort_by = SortingType.SORT_BY_CHOICES[0][0]
+        sort_by_instance.save()
+
+    return redirect('index')
+
 
 def delete(request, id):
     task_list_instance = TaskList.objects.get(user=request.user)
