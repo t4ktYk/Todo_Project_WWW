@@ -47,7 +47,15 @@
             {{ form.description }}
             {% if user.is_authenticated %}
                 <button class="add-task-btn" type="submit">Save</button>
-                {% if request.user|has_group:"user_premium" %} <button onclick="javascript:window.location.href='change-sorting'" class="sort-tasks-btn" type="button">Sort</button> {% endif %}
+                {% if request.user|has_group:"user_premium" %} <button onclick="javascript:window.location.href='change-sorting'" class="sort-tasks-btn" type="button">
+                    {% if sort_by == "by_id" %}
+                        Newest
+                    {% elif sort_by == "by_date" %}
+                        Oldest
+                    {% elif sort_by == "by_color" %}
+                        Color
+                    {% endif %}
+                </button> {% endif %}
 
             {% endif %}
         </form>
