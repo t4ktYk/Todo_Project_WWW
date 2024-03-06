@@ -41,13 +41,17 @@
 
 
     <h1 style="font-size: 40px; font-weight: bold; text-align: center">Todo App</h1>
-    <form method="post" class="todo-post-form">
-        {% csrf_token %}
-        {{ form.description }}
-        {% if user.is_authenticated %}
-            <button class="add-task-btn" type="submit">Save</button>
-        {% endif %}
-    </form>
+    <div class="todo-post-form">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.description }}
+            {% if user.is_authenticated %}
+                <button class="add-task-btn" type="submit">Save</button>
+                {% if request.user|has_group:"user_premium" %} <button class="sort-tasks-btn" type="button">Sort</button> {% endif %}
+
+            {% endif %}
+        </form>
+    </div>
     <div class="task-separator-top"></div>
     {% if user.is_authenticated %}
         <div class="tasks-box">

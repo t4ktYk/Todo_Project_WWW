@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import TaskList, Task, Tag, Priority, Comment
+from .models import TaskList, Task, Tag, Priority, Comment, SortingType
 
 
 @admin.register(TaskList)
@@ -10,6 +10,10 @@ class TaskListAdmin(admin.ModelAdmin):
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     list_display = ['description', 'completed', 'task_list', 'color_filter']
+
+@admin.register(SortingType)
+class SortingTypeAdmin(admin.ModelAdmin):
+    list_display = ['task_list', 'sort_by']
 
 
 @admin.register(Tag)

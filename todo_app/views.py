@@ -2,18 +2,36 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
 from django.contrib.auth import login, logout, authenticate
 
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 from django.contrib.auth.decorators import login_required
 
 from .forms import RegisterForm, TaskCreationForm
-from .models import TaskList, Task, TaskList
+from .models import Task, TaskList, SortingType
 
 #test2
 
+
+
+@login_required(login_url='login/')
 def index(request):
-
-    tasks = Task.objects.filter(task_list=request.user.id).all()
-
     context={}
+
+
+    if len(TaskList.objects.filter(user=request.user)) == 0:
+        tasklist = TaskList(user=request.user, title=request.user)
+        tasklist.save()
+        task_list_instance = TaskList.objects.get(user=request.user)
+        sortype = SortingType(task_list=task_list_instance)
+        sortype.save()
+        return redirect('index')
+
+
+    task_list_instance = TaskList.objects.get(user=request.user)
+    tasks = Task.objects.filter(task_list=task_list_instance).all()
+
+    context = {}
     context['tasks'] = tasks
 
     form = TaskCreationForm()
@@ -22,7 +40,7 @@ def index(request):
         form = TaskCreationForm(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
-            task_list_instance = TaskList.objects.get(pk=request.user.id)
+            task_list_instance = TaskList.objects.get(user=request.user)
             task.task_list = task_list_instance
             task.save()
             return redirect('/')
@@ -39,8 +57,7 @@ def change_color_filter(request, id):
                      'color-filter-purple'
                      )
 
-
-    task_list = TaskList.objects.get(pk=request.user.id)
+    task_list = TaskList.objects.get(user=request.user)
     task = Task.objects.get(id=id, task_list=task_list)
 
     index =[i for i,e in enumerate(color_choices) if e == task.color_filter]
@@ -53,7 +70,7 @@ def change_color_filter(request, id):
     return redirect('/')
 
 def delete(request, id):
-    task_list_instance = TaskList.objects.get(pk=request.user.id)
+    task_list_instance = TaskList.objects.get(user=request.user)
     Task.objects.filter(id=id, task_list=task_list_instance).delete()
     return redirect('/')
 

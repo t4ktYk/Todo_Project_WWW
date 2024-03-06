@@ -9,6 +9,7 @@
 	--celestial-blue: #1b98e0ff;
 	--celestial-blue-hover: #48acff;
 	--mint: #3ab795ff;
+	--mint-hover: #61c5aa;
 }
 
 
@@ -120,6 +121,20 @@ a{
 	background-color: var(--celestial-blue-hover);
 }
 
+.sort-tasks-btn{
+	background-color: var(--mint);
+	border: none;
+	color: var(--floral-white);
+	padding: 4px 12px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 5px;
+}
+
+.sort-tasks-btn:hover{
+	background-color: var(--mint-hover);
+}
 
 
 .tasks-box{

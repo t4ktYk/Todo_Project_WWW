@@ -5,6 +5,7 @@ class TaskList(models.Model):
     title = models.CharField(max_length=200)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+
     def __str__(self):
         return self.title
 
@@ -26,6 +27,16 @@ class Task(models.Model):
 
     def __str__(self):
         return self.description
+
+class SortingType(models.Model):
+    SORT_BY_CHOICES = (
+        ('by_id', 'by_id'),
+        ('by_date', 'by_date'),
+        ('by_color', 'by_color'),
+    )
+
+    task_list = models.ForeignKey(TaskList, on_delete=models.CASCADE)
+    sort_by = models.CharField(max_length=20, choices=SORT_BY_CHOICES, default=SORT_BY_CHOICES[0][0])
 
 class Tag(models.Model):
     name = models.CharField(max_length=50)
