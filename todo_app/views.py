@@ -81,8 +81,6 @@ def change_sorting(request):
     task_list_instance = TaskList.objects.get(user=request.user)
     sort_by_instance = SortingType.objects.get(task_list=task_list_instance)
 
-    SORT_BY_CHOICES = ('by_id', 'by_date', 'by_color')
-
     if sort_by_instance.sort_by == SortingType.SORT_BY_CHOICES[0][0]:
         sort_by_instance.sort_by = SortingType.SORT_BY_CHOICES[1][0]
         sort_by_instance.save()
