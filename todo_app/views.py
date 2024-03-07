@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
 from django.contrib.auth import login, logout, authenticate
 
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
 
@@ -17,8 +16,6 @@ from .models import Task, TaskList, SortingType
 
 @login_required(login_url='login/')
 def index(request):
-    context={}
-
 
     if len(TaskList.objects.filter(user=request.user)) == 0:
         tasklist = TaskList(user=request.user, title=request.user)
@@ -29,13 +26,13 @@ def index(request):
         return redirect('index')
 
     task_list_instance = TaskList.objects.get(user=request.user)
-    sort_by_instance = SortingType(task_list=task_list_instance)
+    sort_by_instance = SortingType.objects.get(task_list=task_list_instance)
 
-    if sort_by_instance.sort_by == "by_id":
+    if sort_by_instance.sort_by == SortingType.SORT_BY_CHOICES[0][0]:
         tasks = Task.objects.filter(task_list=task_list_instance).order_by('-id').all()
-    elif sort_by_instance.sort_by == "by_date":
-        tasks = Task.objects.filter(task_list=task_list_instance).order_by('-date_added').all()
-    elif sort_by_instance.sort_by == "by_color":
+    elif sort_by_instance.sort_by == SortingType.SORT_BY_CHOICES[1][0]:
+        tasks = Task.objects.filter(task_list=task_list_instance).order_by('date_added').all()
+    elif sort_by_instance.sort_by == SortingType.SORT_BY_CHOICES[2][0]:
         tasks = Task.objects.filter(task_list=task_list_instance).order_by('-color_filter').all()
 
 
@@ -55,7 +52,9 @@ def index(request):
         else:
             form = TaskCreationForm()
 
+
     context['form'] = form
+    context['sort_by'] = sort_by_instance.sort_by
 
     return render(request, 'index.html', context)
 
